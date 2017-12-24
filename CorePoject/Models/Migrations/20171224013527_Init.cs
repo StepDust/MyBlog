@@ -5,7 +5,7 @@ using System.Collections.Generic;
 
 namespace Models.Migrations
 {
-    public partial class DBLog : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

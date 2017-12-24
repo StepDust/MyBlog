@@ -7,21 +7,27 @@ using Microsoft.AspNetCore.Mvc;
 using WebFront.Models;
 using Models.DataTable;
 using Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace WebFront.Controllers
 {
     public class HomeController : Controller
     {
+        private DBCodeFirst db;
+
+        public HomeController(DBCodeFirst context)
+        {
+            // 依赖注入得到实例  
+            db = context;
+        }
+
         public IActionResult Index()
         {
-            using (var db = new DBCoreFirst())
-            {
+            db.DT_User.Add(new DT_User { UserName = "嘿嘿" });
+            var count = db.SaveChanges();
+            var cc = db.DT_User.ToList();
+            return View();
 
-                db.DT_User.Add(new DT_User { UserName = "嘿嘿" });
-                var count = db.SaveChanges();
-                var cc = db.DT_User.ToList();
-                return View();
-            }
         }
 
         public IActionResult About()

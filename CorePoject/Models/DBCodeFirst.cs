@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Common;
+using Microsoft.EntityFrameworkCore;
 using Models.DataTable;
 using System;
 using System.Collections.Generic;
@@ -6,12 +7,15 @@ using System.Text;
 
 namespace Models
 {
-    public class DBCoreFirst : DbContext
+    public class DBCodeFirst : DbContext
     {
-        public DBCoreFirst() : base() { }
 
-        public DBCoreFirst(DbContextOptions<DBCoreFirst> options)
-            : base(options) { }
+        public DBCodeFirst() { }
+
+        public DBCodeFirst(DbContextOptions options)
+            : base(options)
+        {
+        }
 
         override protected void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

@@ -35,7 +35,7 @@ namespace WebFront
 
             // 数据库连接字符串
             var conStr = Config.GetVal<string>(ConfigKey.ConStr);
-            services.AddDbContext<DBCoreFirst>(options => options.UseSqlServer(conStr));
+            services.AddDbContext<DBCodeFirst>(options => options.UseSqlServer(conStr));
             services.AddMvc();
         }
 
@@ -44,8 +44,11 @@ namespace WebFront
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env,DBCodeFirst dB)
         {
+
+           // new DbInitializer().InitializeAsync(dB);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

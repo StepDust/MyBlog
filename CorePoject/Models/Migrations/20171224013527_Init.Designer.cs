@@ -10,9 +10,9 @@ using System;
 
 namespace Models.Migrations
 {
-    [DbContext(typeof(DBCoreFirst))]
-    [Migration("20171216095113_DBLog")]
-    partial class DBLog
+    [DbContext(typeof(DBCodeFirst))]
+    [Migration("20171224013527_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

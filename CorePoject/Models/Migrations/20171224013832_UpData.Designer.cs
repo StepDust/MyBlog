@@ -10,10 +10,11 @@ using System;
 
 namespace Models.Migrations
 {
-    [DbContext(typeof(DBCoreFirst))]
-    partial class DBCoreFirstModelSnapshot : ModelSnapshot
+    [DbContext(typeof(DBCodeFirst))]
+    [Migration("20171224013832_UpData")]
+    partial class UpData
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,6 +25,8 @@ namespace Models.Migrations
                 {
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
+
+                    b.Property<string>("Password");
 
                     b.Property<string>("UserName");
 
