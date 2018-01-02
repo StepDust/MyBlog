@@ -10,7 +10,7 @@ using System;
 
 namespace Models.Migrations
 {
-    [DbContext(typeof(DBCodeFirst))]
+    [DbContext(typeof(DbContext))]
     partial class DBCodeFirstModelSnapshot : ModelSnapshot
     {
         protected override void BuildModel(ModelBuilder modelBuilder)

@@ -9,9 +9,6 @@ namespace Models
 {
     public class DBCodeFirst : DbContext
     {
-
-        public DBCodeFirst() { }
-
         public DBCodeFirst(DbContextOptions options)
             : base(options)
         {

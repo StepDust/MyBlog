@@ -10,7 +10,7 @@ using System;
 
 namespace Models.Migrations
 {
-    [DbContext(typeof(DBCodeFirst))]
+    [DbContext(typeof(DbContext))]
     [Migration("20171224013527_Init")]
     partial class Init
     {

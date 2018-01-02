@@ -10,6 +10,7 @@ using Models;
 using Microsoft.EntityFrameworkCore;
 using Common;
 using System.IO;
+using BLL;
 
 namespace WebFront
 {
@@ -36,7 +37,14 @@ namespace WebFront
             // 数据库连接字符串
             var conStr = Config.GetVal<string>(ConfigKey.ConStr);
             services.AddDbContext<DBCodeFirst>(options => options.UseSqlServer(conStr));
+
+            DIBllRegister bllRegister = new DIBllRegister();
+            bllRegister.DIRegister(services);
+
             services.AddMvc();
+
+
+
         }
 
         /// <summary>
@@ -44,10 +52,10 @@ namespace WebFront
         /// </summary>
         /// <param name="app"></param>
         /// <param name="env"></param>
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env,DBCodeFirst dB)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, DBCodeFirst dB)
         {
 
-           // new DbInitializer().InitializeAsync(dB);
+            // new DbInitializer().InitializeAsync(dB);
 
             if (env.IsDevelopment())
             {

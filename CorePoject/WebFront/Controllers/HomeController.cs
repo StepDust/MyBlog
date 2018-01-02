@@ -8,24 +8,33 @@ using WebFront.Models;
 using Models.DataTable;
 using Models;
 using Microsoft.EntityFrameworkCore;
+using Interface.BLL;
 
 namespace WebFront.Controllers
 {
     public class HomeController : Controller
     {
-        private DBCodeFirst db;
+        private IDT_UserService _UserService;
 
-        public HomeController(DBCodeFirst context)
+        public HomeController(IDT_UserService _UserService )
         {
-            // 依赖注入得到实例  
-            db = context;
+            // 依赖注入得到实例
+            this._UserService = _UserService;
         }
 
         public IActionResult Index()
         {
-            db.DT_User.Add(new DT_User { UserName = "嘿嘿" });
-            var count = db.SaveChanges();
-            var cc = db.DT_User.ToList();
+
+            //_UserService.
+
+            //_UserService.DT_User.Add(new IDT_UserBll { UserName = "嘿嘿" });
+            //var count = _UserService.SaveChanges();
+            //var cc = _UserService.DT_User.ToList();
+            var d= _UserService.Insert();
+
+
+            ViewBag.list = _UserService.GetList();
+
             return View();
 
         }
