@@ -1,11 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
+using System.Linq;
+using System.Linq.Expressions;
 
 namespace Interface.BLL
 {
     public interface IBllService<T>
     {
-        //void GetService();
+        T AddEntity(T entity,bool IsSave);
+
+        IQueryable<T> LoadEntites(Expression<Func<T, bool>> where);
     }
 }

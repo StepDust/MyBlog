@@ -40,7 +40,7 @@ namespace WebFront
 
             DIBllRegister bllRegister = new DIBllRegister();
             bllRegister.DIRegister(services);
-
+            
             services.AddMvc();
 
 

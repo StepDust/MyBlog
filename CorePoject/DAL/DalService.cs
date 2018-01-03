@@ -1,12 +1,9 @@
-﻿using Factory;
-using Interface.DAL;
+﻿using Interface.DAL;
 using Microsoft.EntityFrameworkCore;
 using Models;
 using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
 namespace DAL
 {

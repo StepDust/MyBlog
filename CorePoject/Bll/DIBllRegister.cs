@@ -1,12 +1,8 @@
 ﻿using DAL;
-using DAL.DataBaseTable;
+using DAL.DataTable;
 using Interface.BLL;
 using Interface.DAL;
 using Microsoft.Extensions.DependencyInjection;
-using Models.DataTable;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace BLL
 {

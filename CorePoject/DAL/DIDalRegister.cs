@@ -1,7 +1,4 @@
-﻿using Factory;
-using Interface.DAL;
-using Interface.Factory;
-using Microsoft.Extensions.DependencyInjection;
+﻿using Microsoft.Extensions.DependencyInjection;
 
 namespace DAL
 {

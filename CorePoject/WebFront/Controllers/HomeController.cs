@@ -16,7 +16,7 @@ namespace WebFront.Controllers
     {
         private IDT_UserService _UserService;
 
-        public HomeController(IDT_UserService _UserService )
+        public HomeController(IDT_UserService _UserService)
         {
             // 依赖注入得到实例
             this._UserService = _UserService;
@@ -24,35 +24,22 @@ namespace WebFront.Controllers
 
         public IActionResult Index()
         {
+            var d = _UserService.Insert();
 
-            //_UserService.
+            DT_User user = new DT_User
+            {
+                Password = "998",
+                UserName = "啦啦啦"
+            };
 
-            //_UserService.DT_User.Add(new IDT_UserBll { UserName = "嘿嘿" });
-            //var count = _UserService.SaveChanges();
-            //var cc = _UserService.DT_User.ToList();
-            var d= _UserService.Insert();
+            //_UserService.AddEntity(user,true);
 
-
-            ViewBag.list = _UserService.GetList();
+            ViewBag.list = _UserService.LoadEntites(c => true);
 
             return View();
 
         }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
-        }
-
+        
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });

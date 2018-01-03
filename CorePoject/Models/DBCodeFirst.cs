@@ -1,9 +1,5 @@
-﻿using Common;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 using Models.DataTable;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace Models
 {
