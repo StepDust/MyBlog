@@ -14,12 +14,11 @@ namespace BLL
 
         public void DIRegister(IServiceCollection services)
         {
-            // 用于传递上下文对象
+            // 用于实例化DalService对象，获取上下文对象
             services.AddTransient(typeof(IDalService<>), typeof(DalService<>));
 
             // 配置一个依赖注入映射关系 
             services.AddTransient(typeof(IDT_UserService), typeof(DT_UserService));
-                        
         }
     }
 }

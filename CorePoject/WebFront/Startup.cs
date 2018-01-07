@@ -42,9 +42,6 @@ namespace WebFront
             bllRegister.DIRegister(services);
             
             services.AddMvc();
-
-
-
         }
 
         /// <summary>

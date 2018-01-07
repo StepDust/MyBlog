@@ -33,7 +33,7 @@ namespace BLL
             entity = DBService.AddEntity(entity);
             if (IsSave)
             {
-                if (DBService.SaveChanges() > 0)
+                if (SaveChanges() > 0)
                     return null;
             }
             return entity;
@@ -47,8 +47,15 @@ namespace BLL
         public IQueryable<T> LoadEntites(Expression<Func<T, bool>> where)
         {
             return DBService.LoadEntites(where);
-
         }
 
+        /// <summary>
+        /// 保存数据库
+        /// </summary>
+        /// <returns></returns>
+        public int SaveChanges()
+        {
+            return DBService.SaveChanges();
+        }
     }
 }

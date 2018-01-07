@@ -10,25 +10,14 @@ namespace DAL.DataTable
 {
     public class DT_UserService : BllService<DT_User>, IDT_UserService
     { 
+        /// <summary>
+        /// 用于实例化父级，DBService变量
+        /// </summary>
+        /// <param name="dal"></param>
         public DT_UserService(IDalService<DT_User> dal) : base(dal)
         {
 
         }
-
-        public DT_User Insert()
-        {
-            DT_User user = new DT_User
-            {
-                Password = new Random().Next(0, 101) + "",
-                UserName = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss")
-            };
-            return AddEntity(user, true);
-        }
-
-        public List<DT_User> GetList()
-        {
-            return LoadEntites(c => true).ToList();
-        }
-
+        
     }
 }

@@ -15,7 +15,11 @@ namespace DAL
     {
 
         private DbContext DbWrite;
-
+        
+        /// <summary>
+        /// 获得数据库上下文
+        /// </summary>
+        /// <param name="dbContext">数据库上下文类</param>
         public DalService(DBCodeFirst dbContext)
         {
             DbWrite = dbContext;
@@ -30,7 +34,6 @@ namespace DAL
         public IQueryable<T> LoadEntites(Expression<Func<T, bool>> where)
         {
             return DbWrite.Set<T>().Where(where);
-
         }
 
         public int SaveChanges()

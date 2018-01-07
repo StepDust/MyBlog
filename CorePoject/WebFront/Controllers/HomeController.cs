@@ -24,18 +24,7 @@ namespace WebFront.Controllers
 
         public IActionResult Index()
         {
-            var d = _UserService.Insert();
-
-            DT_User user = new DT_User
-            {
-                Password = "998",
-                UserName = "啦啦啦"
-            };
-
-            //_UserService.AddEntity(user,true);
-
-            ViewBag.list = _UserService.LoadEntites(c => true);
-
+          
             return View();
 
         }
