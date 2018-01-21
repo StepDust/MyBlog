@@ -1,13 +1,21 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-
+<script src="~/lib/jquery/jquery.js"></script>
 <style>
-    tr th, tr td{
+    tr th, tr td {
         text-align: center;
         padding: 7px;
     }
 
+    p {
+        padding: 7px;
+        transition: .2s;
+    }
+
+        p:hover {
+            background-color: #ccc;
+        }
 </style>
 
 <table width="80%" style="text-align:center;">
@@ -21,13 +29,42 @@
         {
             foreach (var item in ViewBag.list)
             {
-                <tr>
-                    <td>@item.ID</td>
-                    <td>@item.UserName</td>
-                    <td>@item.Password</td>
-                </tr>
+    <tr>
+        <td>@item.ID</td>
+        <td>@item.UserName</td>
+        <td>@item.Password</td>
+    </tr>
             }
         }
     }
 </table>
 
+
+<p>字符串：<input name="str" /></p>
+<p> 密 钥 ：<input name="key" /></p>
+@*<p> 向 量 ：<input name="iv" /></p>*@
+<p><button onclick="sub()"> 提交 </button></p>
+<table id="Msg" width="80%">
+    <tr>
+        <th>字符串</th>
+        <th>密钥</th>
+        <th>密文</th>
+        <th>明文</th>
+    </tr>
+
+
+</table>
+
+<script>
+
+    function sub() {
+
+        $.post("/Home/EncryptAction", { str: $("input[name = str]").val(), key: $("input[name = key]").val() }, function (res) {
+
+            $("#Msg").append(" <tr><td>" + res.str + "</td><td>" + res.key + "</td><td>" + res.kstr + "</td><td>" + res.text + "</td></tr >");
+
+        });
+
+    }
+
+</script>

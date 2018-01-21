@@ -32,32 +32,6 @@ namespace Common
         /// <param name="key">键</param>
         /// <param name="def">默认值</param>
         /// <returns></returns>
-        public static T GetObject<T>(string key, T def = default(T)) where T : class, new()
-        {
-            try
-            {
-                // 实体配置
-                var config = new ServiceCollection().AddOptions()
-                            .Configure<T>(Configuration.GetSection(key))
-                            .BuildServiceProvider();
-
-                def = config.GetService<IOptions<T>>().Value;
-
-            }
-            catch (Exception e)
-            {
-
-            }
-            return def;
-        }
-
-        /// <summary>
-        /// 返回对应键的值
-        /// </summary>
-        /// <typeparam name="T"></typeparam>
-        /// <param name="key">键</param>
-        /// <param name="def">默认值</param>
-        /// <returns></returns>
         public static T GetVal<T>(ConfigKey key, T def = default(T))
         {
             try
@@ -81,7 +55,11 @@ namespace Common
         /// <summary>
         /// 连接字符串
         /// </summary>
-        ConStr
+        ConStr,
+        /// <summary>
+        /// 连接字符串，解密密钥
+        /// </summary>
+        ConKey
     }
 
 }

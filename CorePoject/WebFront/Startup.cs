@@ -35,12 +35,16 @@ namespace WebFront
             services.AddOptions();
 
             // 数据库连接字符串
-            var conStr = Config.GetVal<string>(ConfigKey.ConStr);
+            string conStr = Config.GetVal<string>(ConfigKey.ConStr);
+            string conKey = Config.GetVal<string>(ConfigKey.ConKey);
+            // 连接字符串解密
+            conStr = EncryptHelper.Decrypt(conStr, conKey);
+
             services.AddDbContext<DBCodeFirst>(options => options.UseSqlServer(conStr));
 
             DIBllRegister bllRegister = new DIBllRegister();
             bllRegister.DIRegister(services);
-            
+
             services.AddMvc();
         }
 
