@@ -15,7 +15,7 @@ namespace DAL
     {
 
         private DbContext DbWrite;
-        
+
         /// <summary>
         /// 获得数据库上下文
         /// </summary>
@@ -31,9 +31,15 @@ namespace DAL
             return entity;
         }
 
+        public T DeleteEntity(T entity)
+        {
+
+            return entity;
+        }
+
         public IQueryable<T> LoadEntites(Expression<Func<T, bool>> where)
         {
-            return DbWrite.Set<T>().Where(where);
+            return DbWrite.Set<T>().Where(where).AsNoTracking();
         }
 
         public int SaveChanges()

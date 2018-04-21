@@ -8,6 +8,8 @@ namespace Interface.DAL
     {
         T AddEntity(T entity);
 
+        T DeleteEntity(T entity);
+
         IQueryable<T> LoadEntites(Expression<Func<T, bool>> where);
 
         int SaveChanges();

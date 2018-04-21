@@ -26,7 +26,7 @@ namespace WebFront.Controllers
         public IActionResult Index()
         {
 
-            _UserService.AddEntity(new DT_User() { UserName = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Password = "" + (new Random()).Next(100) }, true);
+            //   _UserService.AddEntity(new DT_User() { UserName = DateTime.Now.ToString("yyyy/MM/dd HH:mm:ss"), Password = "" + (new Random()).Next(100) }, true);
 
             ViewBag.list = _UserService.LoadEntites(c => true).ToList();
 

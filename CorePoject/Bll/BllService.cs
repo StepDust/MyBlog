@@ -23,20 +23,34 @@ namespace BLL
         }
 
         /// <summary>
-        /// 保存实体
+        /// 添加实体
         /// </summary>
         /// <param name="entity"></param>
         /// <param name="IsSave"></param>
         /// <returns></returns>
-        public T AddEntity(T entity, bool IsSave)
+        public T AddEntity(T entity, bool isSave)
         {
             entity = DBService.AddEntity(entity);
-            if (IsSave)
+            if (isSave)
             {
                 if (SaveChanges() > 0)
                     return null;
             }
             return entity;
+        }
+
+        /// <summary>
+        /// 删除实体
+        /// </summary>
+        /// <param name="entity"></param>
+        /// <param name="isSave"></param>
+        /// <returns></returns>
+        public int DeleteEntity(T entity, bool isSave)
+        {
+            DBService.DeleteEntity(entity);
+            if (isSave)
+                return SaveChanges();
+            return 0;
         }
 
         /// <summary>
